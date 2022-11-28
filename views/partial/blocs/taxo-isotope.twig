@@ -1,0 +1,11 @@
+<div class="d-none d-md-flex justify-content-left container-fluid  m-a filter-button-group button-group js-radio-button-group row">
+  <button data-filter="*" autofocus="autofocus" id="all" class="transparent black pb5 pt5 pl10 pr10 op8 filter-button border-none brd-none t4 t-a-center mb10 no-outfit">
+    Tout
+  </button>
+  {% for taxo in taxos  %}
+    <button   data-filter=".{{ taxo.id }}" class="pb5 pt5 pl10 pr10{% for act in acts %} {% for term in act.terms  %} {% if taxo.name == term.name %} d-inline-block {% else %} d-none {% endif %} {% endfor %} {% endfor %} filter-button transparent black brd-none op8  mb10">
+      {{ taxo.name }}
+    </button>
+  {% endfor %}
+
+</div>
